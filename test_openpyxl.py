@@ -8,3 +8,10 @@ def test_create_workbook():
     assert wb is not None
     ws = wb.active
     assert ws is not None
+
+
+def test_write_read_cell():
+    wb = Workbook()
+    ws = wb.active
+    ws["A1"] = 42
+    assert ws["A1"].value == 42
