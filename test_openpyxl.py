@@ -22,3 +22,12 @@ def test_cell_row_column():
     ws = wb.active
     ws.cell(row=2, column=3, value="hello")
     assert ws.cell(row=2, column=3).value == "hello"
+
+
+def test_append_row():
+    wb = Workbook()
+    ws = wb.active
+    ws.append([1, 2, 3])
+    assert ws["A1"].value == 1
+    assert ws["B1"].value == 2
+    assert ws["C1"].value == 3
